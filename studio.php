@@ -7,6 +7,8 @@
 
 <?php
 
+
+
 echo '
 <script src="scripts.js"></script>
 
@@ -29,12 +31,14 @@ echo '
   </div>
 </div>
   
-<div class="buttonContainer">
-  <div class="button">Save</div>
-  <div class="button">Load</div>
-</div>
 
 <script>
+function updateALL() {
+  updatePines();
+  updateLights();
+  updateBulbs();
+}
+
   //PINES
   var treeArray = ["PinesGreen.gif", "PinesSnowy.gif", "PinesGold.gif", "PinesWhite.gif"];
   function updatePines() {
@@ -65,9 +69,8 @@ echo '
     bulbImg.src = newImage;
   }
 </script>
-
-<div class="decorationMenu">
-  <form>
+  <form action="studio.php" method="post">
+  <div class="decorationMenu">
   <div class="treeDecoration">
     <label for="fname">Tree Type:</label><br>
     <input type="range" min="0" max="4" value="0" id="PinesSlider" onchange="updatePines()">
@@ -96,8 +99,14 @@ echo '
     <label for="fname">Snow Effect:</label><br>
     <input type="checkbox" id="fname" name="fname" value="John">
   </div>
-  </form>
-</div>';
+</div>
+<div class="buttonContainer">
+  <input class = "button" type = "reset"  value = "Save"/>
+  <input class = "button" type = "submit"  value = "Load"/>
+
+</div>
+</form>';
+
 
 ?>
 </body>

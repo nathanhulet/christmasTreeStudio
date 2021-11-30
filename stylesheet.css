@@ -11,6 +11,7 @@ Brown	    	#574539
 input[type=range]{
   -webkit-appearance: none;
   background-color: #4f614000;
+  margin-top: 20px;
 }
 input[type=range]::-webkit-slider-runnable-track {
   color:#6a8255;
@@ -36,6 +37,9 @@ input[type=range]:focus {
 input[type=range]:focus::-webkit-slider-runnable-track {
   border: none;
   background: #6a8255;
+}
+input[type=checkbox]{
+  margin-top: 18px;
 }
 
 .topnav {
@@ -139,6 +143,7 @@ body {
 }
 
 .button {
+  width: 90%;
   display: flex;
   font-family:'Gill Sans', 'Gill Sans MT';
   font-size: 3vw;
