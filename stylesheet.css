@@ -14,7 +14,7 @@ Brown	    	#574539
   top: 0px;
   left: 0px;
   width: 100%;
-
+  z-index: 10000;
 }
 
 .topnav a { 
@@ -26,11 +26,13 @@ Brown	    	#574539
   padding: 14px 16px;
   text-decoration: none;
   font-size: 17px;
+  z-index: inherit;
 }
 
 .topnav a:hover {
   background-color: rgba(221, 221, 221, 0.308);
   color: rgba(0, 0, 0, 0.507);
+  transition: 0.2s;
 }
 
 .topnav a.active {
@@ -55,6 +57,7 @@ Brown	    	#574539
   .topnav a.icon {
       float: right;
       display: block;
+      transition: 0.2s;
     }
 }
 
@@ -72,9 +75,12 @@ Brown	    	#574539
   }
 }
 
-img {
+.backgroundImg {
+  position: fixed;
   width: 100%;
   height: 100%;
+  left: 0;
+  top: 0;
   object-fit: cover;
   object-position:center;
 }
@@ -84,16 +90,12 @@ body {
 }
 
 .treeContainer {
-  position:absolute;
+  position:relative;
   top:48px;
   background-color: black;
-  /* margin-left: 8.7%; */
-  /* width: 80%; */
   width: 100%;
   left: 0;
-  height: 89%;
-  z-index: -100;
-}
+  height: 89%;}
 
 .buttonContainer {
   position: fixed;
@@ -102,7 +104,7 @@ body {
   width: 15%;
   overflow: hidden;
   background-color:#b5ccbe;
-  height: 17%;
+  height: 110px;
 }
 
 .button {
@@ -119,8 +121,8 @@ body {
   margin-right: 5%;
   margin-left: 5%;
   height: 40%;
-  margin-top: 5%;
-  margin-bottom: 5%;
+  margin-top: 3px;
+  margin-bottom: 10px;
   transition: all 0.6s;
   cursor: grab;
 }
@@ -130,27 +132,52 @@ body {
 }
 
 .decorationMenu {
-  overflow: hidden;
+  font-family:'Gill Sans', 'Gill Sans MT';
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
   position: fixed;
   bottom: 0;
-  right: 15%;
-  width: 100%;
-  overflow: hidden;
+  left: 0;
+  width: 85%;
   background-color: #d7e2d7;
-  height: 17%;
+  height: 110px;
 }
 
 .treeDecoration {
-  position: absolute;
-  display: block;
-  left: 17%;
-  width: 10vw;
-  height: 50%;
+  position:relative;
+  display: inline-block;
+  margin-left: 10px;
+  text-align: center;
+  background-color: #6a8255;
+  font-size: 30px;
+  width: 150px;
+  height: 95px;
+  left: 0px;
+  margin-top: 5px;
+  border-radius: 5px;
+  color: #b5ccbe;
 }
 
-.treeDecoration img {
+.treeTrunk img {
   position: absolute;
-  top: 20%;
-  width: 10vw;
-  height: 10vw;
+  left: 50%;
+  top: 50%;
+  transform: translateY(-10%) translateX(-43%);
+  width: 120%;
+  min-width: 1300px;
+  min-height: 600px;
+  height: auto;
+}
+
+.treeTrunk {
+  position: fixed;
+  bottom: 600px;
+  left: 50%;
+}
+
+#wrapper {
+  height:30%;
+  overflow:hidden;
+  width: 30px;
 }
