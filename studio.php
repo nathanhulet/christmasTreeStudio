@@ -16,7 +16,7 @@ echo '
 <!-- Dynamic Navbar -->
 <div class="topnav" id="myTopnav">
   <a href="#home" class="active">Christmas Tree Studio</a>
-  <a href="gallery.html">Gallery</a>
+  <a href="gallery.php">Gallery</a>
   <a href="about.html">About</a>
   <a href="javascript:void(0);" class="icon" onclick="myFunction()">
     <img class="hamburger" src="resources/hamburger-menu.png">

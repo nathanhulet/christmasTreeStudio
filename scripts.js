@@ -87,3 +87,10 @@ const container = document.querySelector(".treeContainer");
       }
     }
   }
+
+function saveDesign() {
+  var title = prompt("Enter a title for your design:");
+  document.getElementById('designTitle').value = title;
+  document.getElementById("myForm").submit();
+}
+

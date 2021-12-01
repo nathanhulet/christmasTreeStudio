@@ -13,7 +13,7 @@
 <!-- Dynamic Navbar -->
 <div class="topnav" id="myTopnav">
   <a href="#home" class="active">Christmas Tree Studio</a>
-  <a href="gallery.html">Gallery</a>
+  <a href="gallery.php">Gallery</a>
   <a href="about.html">About</a>
   <a href="javascript:void(0);" class="icon" onclick="myFunction()">
     <img class="hamburger" src="resources/hamburger-menu.png">
@@ -34,7 +34,7 @@
 <script src="scripts.js"></script>
 
 <!-- Bottom menu bar for user inputs -->
-<form action="studio.php" method="post">
+<form id="myForm" action="studio.php" method="post">
   <div class="decorationMenu">
   <div class="treeDecoration">
     <label for="fname">Tree Type:</label><br>
@@ -64,11 +64,12 @@
     <label for="fname">Snow Effect:</label><br>
     <input type="checkbox" id="snowCheck" name="fname" value="John" onchange="toggleSnow()">
   </div>
+  <input type='hidden' id= 'designTitle' name='id' value='' />
 </div>
 <!-- Buttons to submit form  CURRENTLY NOT WORKING-->
   <div class="buttonContainer">
-    <input class = "button" type = "reset"  value = "Save"/>
-    <input class = "button" type = "submit"  value = "Load"/>
+    <input class = "button" type = "reset"  value = "Save" onclick="saveDesign()"/>
+    <input class = "button" type = "submit"  value = "Load" />
   </div>
 </form>
 

@@ -239,3 +239,17 @@ body {
     transform: translateY(100vh);
   }
 }
+
+.designTitle {
+  position: fixed;
+  overflow: hidden;
+  background-color: #6a8255;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  z-index: 10000;
+  font-family:'Gill Sans', 'Gill Sans MT';
+  color: #f6f1eb;
+  text-align: center;
+  padding: 14px 14px;
+}
