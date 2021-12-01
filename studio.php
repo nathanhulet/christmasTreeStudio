@@ -10,8 +10,10 @@
 
 
 echo '
-<script src="scripts.js"></script>
+<!-- Snowflake object -->
+<img class="flake" src="resources/snowyflake.png" id="flakes">
 
+<!-- Dynamic Navbar -->
 <div class="topnav" id="myTopnav">
   <a href="#home" class="active">Christmas Tree Studio</a>
   <a href="gallery.html">Gallery</a>
@@ -21,6 +23,7 @@ echo '
   </a>
 </div>
 
+<!-- Container to center all the design images -->
 <div class="treeContainer">
   <div id="wrapper">
   <img class= "backgroundImg" src="resources/background_1.jpg" style="z-index: -100;" draggable="false">
@@ -30,58 +33,23 @@ echo '
   <div class="treeTrunk" ><img id="Bulbs" src="resources/EMPTY.svg.png" alt="image error" draggable="false"></div>
   </div>
 </div>
-  
 
-<script>
-function updateALL() {
-  updatePines();
-  updateLights();
-  updateBulbs();
-}
+<script src="scripts.js"></script>
 
-  //PINES
-  var treeArray = ["PinesGreen.gif", "PinesSnowy.gif", "PinesGold.gif", "PinesWhite.gif"];
-  function updatePines() {
-
-    var slide = document.getElementById("PinesSlider");
-    var pineImg = document.getElementById("Pines");
-   var newImage = "resources/" + treeArray[slide.value];
-   pineImg.src = newImage;
-  }
-
-  //ORNAMENTS
-  var bulbArray = ["EMPTY.svg.png", "BulbsBlue.gif", "BulbsGreen.gif"];
-  function updateBulbs() {
-
-    var slide = document.getElementById("BulbsSlider");
-    var bulbImg = document.getElementById("Bulbs");
-    var newImage = "resources/" + bulbArray[slide.value];
-    bulbImg.src = newImage;
-  }
-
-  //LIGHTS
-  var lightsArray = ["EMPTY.svg.png", "LightsBlue.gif", "LightsYellow.gif"];
-  function updateLights() {
-
-    var slide = document.getElementById("LightsSlider");
-    var bulbImg = document.getElementById("Lights");
-    var newImage = "resources/" + lightsArray[slide.value];
-    bulbImg.src = newImage;
-  }
-</script>
-  <form action="studio.php" method="post">
+<!-- Bottom menu bar for user inputs -->
+<form action="studio.php" method="post">
   <div class="decorationMenu">
   <div class="treeDecoration">
     <label for="fname">Tree Type:</label><br>
-    <input type="range" min="0" max="4" value="0" id="PinesSlider" onchange="updatePines()">
+    <input type="range" min="0" max="3" value="0" id="PinesSlider" onchange="updatePines()">
   </div>
   <div class="treeDecoration">
     <label for="fname">Ornaments:</label><br>
-    <input type="range" min="0" max="4" value="0" id="BulbsSlider" onchange="updateBulbs()">
+    <input type="range" min="0" max="2" value="0" id="BulbsSlider" onchange="updateBulbs()">
   </div>
   <div class="treeDecoration">
     <label for="fname">Lights:</label><br>
-    <input type="range" min="0" max="4" value="0" id="LightsSlider" onchange="updateLights()">
+    <input type="range" min="0" max="2" value="0" id="LightsSlider" onchange="updateLights()">
   </div>
   <div class="treeDecoration">
     <label for="fname">Stand Type:</label><br>
@@ -97,14 +65,14 @@ function updateALL() {
   </div>
   <div class="treeDecoration">
     <label for="fname">Snow Effect:</label><br>
-    <input type="checkbox" id="fname" name="fname" value="John">
+    <input type="checkbox" id="snowCheck" name="fname" value="John" onchange="toggleSnow()">
   </div>
 </div>
-<div class="buttonContainer">
-  <input class = "button" type = "reset"  value = "Save"/>
-  <input class = "button" type = "submit"  value = "Load"/>
-
-</div>
+<!-- Buttons to submit form  CURRENTLY NOT WORKING-->
+  <div class="buttonContainer">
+    <input class = "button" type = "reset"  value = "Save"/>
+    <input class = "button" type = "submit"  value = "Load"/>
+  </div>
 </form>';
 
 

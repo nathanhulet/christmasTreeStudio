@@ -219,3 +219,23 @@ body {
   width: 30px;
   opacity: 100%;
 }
+
+.flake {
+  position:relative;
+  visibility: hidden;
+  color: rgb(255, 255, 255);
+  top: -50px;
+  opacity: 0;
+  animation: fall 2s linear forwards infinite;
+  animation-delay: 0s;
+  filter:brightness(100%);
+}
+
+@keyframes fall {
+  from {
+    transform: translateY(-10vh);
+  }
+  to {
+    transform: translateY(100vh);
+  }
+}
