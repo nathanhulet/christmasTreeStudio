@@ -39,10 +39,30 @@ function updateALL() {
   function updateLights() {
 
     var slide = document.getElementById('LightsSlider');
-    var bulbImg = document.getElementById('Lights');
+    var lightsImg = document.getElementById('Lights');
     var newImage = "resources/" + lightsArray[slide.value];
-    bulbImg.src = newImage;
+    lightsImg.src = newImage;
   }
+
+  //SKIRTS
+  var skirtArray = ["EMPTY.svg.png", "skirtred.gif"];
+  function updateSkirts() {
+
+    var slide = document.getElementById('SkirtSlider');
+    var skirtImg = document.getElementById('Skirt');
+    var newImage = "resources/" + skirtArray[slide.value];
+    skirtImg.src = newImage;
+  }
+
+  //GARLANDS
+  var garlandArray = ["EMPTY.svg.png", "garlandgold.gif"];
+  function updateGarlands() {
+
+    var slide = document.getElementById('GarlandSlider');
+    var garlandImg = document.getElementById('Garland');
+    var newImage = "resources/" + garlandArray[slide.value];
+    garlandImg.src = newImage;
+}
 
 
 // Scripts for generating snow
@@ -66,17 +86,10 @@ const container = document.querySelector(".treeContainer");
     container.append(clone); // adding clone flake to container
   }
 
-  // to create more flakes decrease 100
-  const s = setInterval(createFlake, 80);
-  for (var i = 0; i < 60; ++i)
+  for (var i = 0; i < 100; ++i)
   {
     createFlake();
   }
-
-
-  setTimeout(() => {
-    clearInterval(s);
-  }, 4500); // flake creation stops after 3000 milliseconds or 3s
 
   function toggleSnow() {
     var ele = document.getElementsByClassName("flake");

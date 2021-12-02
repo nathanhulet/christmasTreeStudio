@@ -23,6 +23,8 @@
   <div class="treeTrunk" style="bottom: 465px;"><img id="Pines" src="resources/PinesGreen.gif" alt="image error" draggable="false"></div>
   <div class="treeTrunk" style="bottom: 465px;"><img id="Lights" src="resources/EMPTY.svg.png" alt="image error" draggable="false"></div>
   <div class="treeTrunk" style="bottom: 465px;"><img id="Bulbs" src="resources/EMPTY.svg.png" alt="image error" draggable="false"></div>
+  <div class="treeTrunk" style="bottom: 465px;"><img id="Garland" src="resources/EMPTY.svg.png" alt="image error" draggable="false"></div>
+  <div class="treeTrunk" style="bottom: 465px;"><img id="Skirt" src="resources/EMPTY.svg.png" alt="image error" draggable="false"></div>
   </div>
 </div>
 
@@ -65,6 +67,20 @@ var typeOfLight = myArray['Lights'];
 var bulbImg = document.getElementById('Lights');
 var newImage = "resources/" + lightsArray[typeOfLight];
 bulbImg.src = newImage;
+
+//SKIRTS
+var skirtArray = ["EMPTY.svg.png", "skirtred.gif"];
+var typeOfSkirt = myArray['Skirt'];
+var skirtImg = document.getElementById('Skirt');
+var newImage = "resources/" + skirtArray[typeOfSkirt];
+skirtImg.src = newImage;
+
+//GARLANDS
+var garlandArray = ["EMPTY.svg.png", "garlandgold.gif"];
+var typeOfGarland = myArray['Garland'];
+var garlandImg = document.getElementById('Garland');
+var newImage = "resources/" + garlandArray[typeOfGarland];
+garlandImg.src = newImage;
 
 //SNOW
 

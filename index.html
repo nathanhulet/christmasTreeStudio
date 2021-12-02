@@ -28,6 +28,8 @@
   <div class="treeTrunk" ><img id="Pines" src="resources/PinesGreen.gif" alt="image error" draggable="false"></div>
   <div class="treeTrunk" ><img id="Lights" src="resources/EMPTY.svg.png" alt="image error" draggable="false"></div>
   <div class="treeTrunk" ><img id="Bulbs" src="resources/EMPTY.svg.png" alt="image error" draggable="false"></div>
+  <div class="treeTrunk" ><img id="Garland" src="resources/EMPTY.svg.png" alt="image error" draggable="false"></div>
+  <div class="treeTrunk" ><img id="Skirt" src="resources/EMPTY.svg.png" alt="image error" draggable="false"></div>
   </div>
 </div>
 
@@ -50,15 +52,15 @@
   </div>
   <div class="treeDecoration">
     <label for="fname">Stand Type:</label><br>
-    <input type="range" min="1" max="5" value="1">
+    <input type="range" min="0" max="0" value="0" id="StandSlider" onchange="updateStands()">
   </div>
   <div class="treeDecoration">
     <label for="fname">Skirt Type:</label><br>
-    <input type="range" min="1" max="5" value="1">
+    <input type="range" min="0" max="1" value="0" id="SkirtSlider" onchange="updateSkirts()">
   </div>
   <div class="treeDecoration">
     <label for="fname">Garland:</label><br>
-    <input type="range" min="1" max="5" value="1">
+    <input type="range" min="0" max="1" value="0" id="GarlandSlider" onchange="updateGarlands()">
   </div>
   <div class="treeDecoration">
     <label for="fname">Snow Effect:</label><br>
