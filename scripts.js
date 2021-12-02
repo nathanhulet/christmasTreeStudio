@@ -92,9 +92,12 @@ const container = document.querySelector(".treeContainer");
   }
 
   function toggleSnow() {
+    var myBool = document.getElementById('snowy').value = 'true';
+    myBool = !myBool;
     var ele = document.getElementsByClassName("flake");
     var checkBox = document.getElementById("snowCheck");
     if (checkBox.checked) {
+
       for (var i = 0; i < ele.length; i++ ) {
         ele[i].style.visibility = "visible";
       }

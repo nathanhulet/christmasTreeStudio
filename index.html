@@ -64,13 +64,18 @@
   </div>
   <div class="treeDecoration">
     <label for="fname">Snow Effect:</label><br>
-    <input type="checkbox" id="snowCheck" name="fname" value="John" name="snow" onchange="toggleSnow()">
+    <input type="checkbox" id="snowCheck" name="snow" value="false" onchange="toggleSnow()">
   </div>
-  <input type='hidden' id= 'designTitle' name='id' name="title" value='' />
+  <div>
+   <input type="hidden" id= "designTitle" name="title" value="" />
+   </div>
+   <div>
+    <input type="hidden" id= "snowy" name="snowy" value="true" />
+   </div>
 </div>
 <!-- Buttons to submit form  CURRENTLY NOT WORKING-->
   <div class="buttonContainer">
-    <input class = "button" type = "reset"  value = "Save" onclick="saveDesign()"/>
+    <input class = "button" value = "Save" onclick="saveDesign()"/>
     <input class = "button" type = "submit"  value = "Load" />
   </div>
 </form>

@@ -67,39 +67,49 @@ echo '
   </div>
   <div class="treeDecoration">
     <label for="fname">Snow Effect:</label><br>
-    <input type="checkbox" id="snowCheck" name="fname" value="John" name="snow" onchange="toggleSnow()">
+    <input type="checkbox" id="snowCheck" name="snow" value="false" onchange="toggleSnow()">
   </div>
-  <input type="hidden" id= "designTitle" name="id" name="title" value="" />
+  <div>
+   <input type="hidden" id= "designTitle" name="title" value="" />
+   </div>
+   <div>
+    <input type="hidden" id= "snowy" name="snowy" value="true" />
+   </div>
 </div>
 <!-- Buttons to submit form  CURRENTLY NOT WORKING-->
   <div class="buttonContainer">
-    <input class = "button" type = "reset"  value = "Save" onclick="saveDesign()"/>
+    <input class = "button" value = "Save" onclick="saveDesign()"/>
     <input class = "button" type = "submit"  value = "Load" />
   </div>
 </form>';
 
-// Get input data
-$id = $_POST["Design_id"];
-$title = $_POST["Design_Title"];
-$price = $_POST["Pine"];
-$quantity = $_POST["Ornaments"];
-$quantity = $_POST["Lights"];
-$quantity = $_POST["Stand"];
-$quantity = $_POST["Skirt"];
-$quantity = $_POST["Garland"];
-$isDiscontinued = 'false';
+function debug_to_console($data) {
+  $output = $data;
+  if (is_array($output))
+      $output = implode(',', $output);
 
-
-// get correct input for boolean
-if(filter_has_var(INPUT_POST,'Snow')) 
-{
-  $isDiscontinued = true;
+  echo "<script>console.log('Debug Objects: " . $output . "' );</script>";
 }
 
+// Get input data
+$title = $_POST["title"];
+$pine = $_POST["pine"];
+$ornaments = $_POST["ornaments"];
+$lights = $_POST["lights"];
+$stand = $_POST["stand"];
+$skirt = $_POST["skirt"];
+$garland = $_POST["garland"];
+$snow = $_POST["snowy"];
+
+
+
 // If any of numerical values are blank, set them to zero
-if ($id == "") $id = 0;
-if ($price == "") $price = 0.00;
-if ($quantity == "") $quantity = 0;
+if ($pine == "") $pine = 0;
+if ($ornaments == "") $ornaments = 0;
+if ($lights == "") $lights = 0;
+if ($stand == "") $stand = 0;
+if ($skirt == "") $skirt = 0;
+if ($garland == "") $garland = 0;
 
 // Connect to MySQL
 $db = mysqli_connect("localhost:3306", "root", "root","ChristmasStudio");
@@ -115,31 +125,8 @@ if (!$er) {
     exit;
 }
 
-if($action == "displayBooks")
-$query = "display";
-else if ($action == "addBook")
-$query = "insert into Books values($id, '$title', $price, $quantity, $isDiscontinued)";
-else if ($action == "updatePrice")
-$query = "update Books set Price = $price WHERE Book_id = $id";
-else if ($action == "deleteBook")
-$query = "delete from Books where Book_id = $id";
-else {}
-
-if($query != "display"){
-trim($query);
-$query_html = htmlspecialchars($query);
-print "<b> The query is: </b> " . $query_html . "<br />";
-$result = mysqli_query($db,$query);
-if (!$result) {
-    print "Error - the query could not be executed";
-    $error = mysqli_error();
-    print "<p>" . $error . "</p>";
-}
-}
-
-if ($query == "display") {
-$query = "SELECT * FROM Books";
-$result = mysqli_query($db,$query);
+$queryTest = "SELECT * FROM Design";
+$result = mysqli_query($db,$queryTest);
 if (!$result) {
   print "Error - the query could not be executed";
   $error = mysqli_error();
@@ -147,29 +134,17 @@ if (!$result) {
   exit;
 }
 $num_rows = mysqli_num_rows($result);
-print "<div class = 'rectangle'><table><caption> <p class='headerText'> Books ($num_rows) </p> </caption>";
-print "<tr align = 'center'>";
+$newID = ($num_rows + 1);
 
-$row = mysqli_fetch_array($result);
-$num_fields = mysqli_num_fields($result);
-// Produce the column labels
-$keys = array_keys($row);
-for ($index = 0; $index < $num_fields; $index++) 
-    print "<th>" . $keys[2 * $index + 1] . "</th>";
-print "</tr>";
+$query = "INSERT INTO Design values($newID, '$title', $pine, $ornaments, $lights, $stand, $skirt, $garland, $snow)";
 
-// Output the values of the fields in the rows
-for ($row_num = 0; $row_num < $num_rows; $row_num++) {
-  print "<tr align = 'center'>";
-  $values = array_values($row);
-  for ($index = 0; $index < $num_fields; $index++){
-      $value = htmlspecialchars($values[2 * $index + 1]);
-      print "<th>" . $value . "</th> ";
-  }
-  print "</tr>";
-  $row = mysqli_fetch_array($result);
-}
-print "</table></div>";
+//trim($query);
+$result = mysqli_query($db,$query);
+
+if (!$result) {
+   debug_to_console("failure3");
+    $error = mysqli_error();
+    echo "<script>console.log('here it is: " . $error . "' );</script>";
 }
 
 
