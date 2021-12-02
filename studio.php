@@ -112,7 +112,7 @@ if ($skirt == "") $skirt = 0;
 if ($garland == "") $garland = 0;
 
 // Connect to MySQL
-$db = mysqli_connect("localhost:3306", "root", "root","ChristmasStudio");
+$db = mysqli_connect("localhost:3306", "root", "","ChristmasStudio");
 if (!$db) {
     print "Error - Could not connect to MySQL";
     exit;
