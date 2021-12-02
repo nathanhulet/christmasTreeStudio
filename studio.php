@@ -31,13 +31,15 @@ echo '
   <div class="treeTrunk" ><img id="Pines" src="resources/PinesGreen.gif" alt="image error" draggable="false"></div>
   <div class="treeTrunk" ><img id="Lights" src="resources/EMPTY.svg.png" alt="image error" draggable="false"></div>
   <div class="treeTrunk" ><img id="Bulbs" src="resources/EMPTY.svg.png" alt="image error" draggable="false"></div>
+  <div class="treeTrunk" ><img id="Garland" src="resources/EMPTY.svg.png" alt="image error" draggable="false"></div>
+  <div class="treeTrunk" ><img id="Skirt" src="resources/EMPTY.svg.png" alt="image error" draggable="false"></div>
   </div>
 </div>
 
 <script src="scripts.js"></script>
 
 <!-- Bottom menu bar for user inputs -->
-<form action="studio.php" method="post">
+<form id="myForm" action="studio.php" method="post">
   <div class="decorationMenu">
   <div class="treeDecoration">
     <label for="fname">Tree Type:</label><br>
@@ -53,25 +55,26 @@ echo '
   </div>
   <div class="treeDecoration">
     <label for="fname">Stand Type:</label><br>
-    <input type="range" min="1" max="5" value="1">
+    <input type="range" min="0" max="0" value="0" id="StandSlider" onchange="updateStands()">
   </div>
   <div class="treeDecoration">
     <label for="fname">Skirt Type:</label><br>
-    <input type="range" min="1" max="5" value="1">
+    <input type="range" min="0" max="1" value="0" id="SkirtSlider" onchange="updateSkirts()">
   </div>
   <div class="treeDecoration">
     <label for="fname">Garland:</label><br>
-    <input type="range" min="1" max="5" value="1">
+    <input type="range" min="0" max="1" value="0" id="GarlandSlider" onchange="updateGarlands()">
   </div>
   <div class="treeDecoration">
     <label for="fname">Snow Effect:</label><br>
     <input type="checkbox" id="snowCheck" name="fname" value="John" onchange="toggleSnow()">
   </div>
+  <input type="hidden" id= "designTitle" name="id" value="" />
 </div>
 <!-- Buttons to submit form  CURRENTLY NOT WORKING-->
   <div class="buttonContainer">
-    <input class = "button" type = "reset"  value = "Save"/>
-    <input class = "button" type = "submit"  value = "Load"/>
+    <input class = "button" type = "reset"  value = "Save" onclick="saveDesign()"/>
+    <input class = "button" type = "submit"  value = "Load" />
   </div>
 </form>';
 
