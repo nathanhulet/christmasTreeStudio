@@ -236,7 +236,7 @@ body {
     transform: translateY(-10vh);
   }
   to {
-    transform: translateY(100vh);
+    transform: translateY(75vh);
   }
 }
 
@@ -249,7 +249,8 @@ body {
   width: 100%;
   z-index: 10000;
   font-family:'Gill Sans', 'Gill Sans MT';
+  font-size: 30px;
   color: #f6f1eb;
   text-align: center;
-  padding: 14px 14px;
+  padding: 5px 5px;
 }

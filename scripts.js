@@ -50,6 +50,7 @@ const flake = document.querySelector(".flake");
 const container = document.querySelector(".treeContainer");
 
   function createFlake() {
+    
 
     // cloning the flake node
     const clone = flake.cloneNode(true);
@@ -67,6 +68,10 @@ const container = document.querySelector(".treeContainer");
 
   // to create more flakes decrease 100
   const s = setInterval(createFlake, 80);
+  for (var i = 0; i < 60; ++i)
+  {
+    createFlake();
+  }
 
 
   setTimeout(() => {
