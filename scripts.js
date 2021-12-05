@@ -35,7 +35,7 @@ function updateALL() {
   }
 
   //LIGHTS
-  var lightsArray = ["EMPTY.svg.png", "LightsBlue.gif", "LightsYellow.gif"];
+  var lightsArray = ["EMPTY.svg.png", "LightsBlue.gif", "LightsYellow.gif", "LightsRed.gif"];
   function updateLights() {
 
     var slide = document.getElementById('LightsSlider');
@@ -55,13 +55,32 @@ function updateALL() {
   }
 
   //GARLANDS
-  var garlandArray = ["EMPTY.svg.png", "garlandgold.gif"];
+  var garlandArray = ["EMPTY.svg.png", "garlandgold.gif", "garlandRedBlueGreen.gif"];
   function updateGarlands() {
 
     var slide = document.getElementById('GarlandSlider');
-    var garlandImg = document.getElementById('Garland');
+    var garlandImg = document.getElementById("Garland");
     var newImage = "resources/" + garlandArray[slide.value];
     garlandImg.src = newImage;
+}
+
+//STANDS
+var standArray = ["EMPTY.svg.png", "metalStand.gif", "plasticStand.gif"];
+function updateStands() {
+  var slide = document.getElementById('StandSlider');
+  var StandImg = document.getElementById("Stand");
+  var newImage = "resources/" + standArray[slide.value];
+  StandImg.src = newImage;
+  var trunk = document.getElementById("trunk");
+  ;
+  if (slide.value >= 1) {
+    trunk.src = "resources/EMPTY.svg.png";
+    document.getElementById('Skirt').style.bottom = "620px";
+  }
+  else {
+    trunk.src = "resources/trunk.gif";
+    document.getElementById('Skirt').style.bottom = "600px";
+  }
 }
 
 
