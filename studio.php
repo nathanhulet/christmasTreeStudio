@@ -7,8 +7,6 @@
 
 <?php
 
-
-
 echo '
 <!-- Snowflake object -->
 <img class="flake" src="resources/snowyflake.png" id="flakes">
@@ -27,12 +25,14 @@ echo '
 <div class="treeContainer">
   <div id="wrapper">
   <img class= "backgroundImg" src="resources/background_1.jpg" style="z-index: -100;" draggable="false">
+  <div class="treeTrunk" style="bottom: 620px;"><img id="Stand" src="resources/EMPTY.svg.png" alt="image error" draggable="false"></div>
   <div class="treeTrunk" ><img id="trunk" src="resources/trunk.gif" alt="image error" draggable="false"></div>
   <div class="treeTrunk" ><img id="Pines" src="resources/PinesGreen.gif" alt="image error" draggable="false"></div>
   <div class="treeTrunk" ><img id="Lights" src="resources/EMPTY.svg.png" alt="image error" draggable="false"></div>
   <div class="treeTrunk" ><img id="Bulbs" src="resources/EMPTY.svg.png" alt="image error" draggable="false"></div>
   <div class="treeTrunk" ><img id="Garland" src="resources/EMPTY.svg.png" alt="image error" draggable="false"></div>
   <div class="treeTrunk" ><img id="Skirt" src="resources/EMPTY.svg.png" alt="image error" draggable="false"></div>
+  
   </div>
 </div>
 
@@ -51,11 +51,11 @@ echo '
   </div>
   <div class="treeDecoration">
     <label for="fname">Lights:</label><br>
-    <input type="range" min="0" max="2" value="0" id="LightsSlider" name="lights" onchange="updateLights()">
+    <input type="range" min="0" max="3" value="0" id="LightsSlider" name="lights" onchange="updateLights()">
   </div>
   <div class="treeDecoration">
     <label for="fname">Stand Type:</label><br>
-    <input type="range" min="0" max="0" value="0" id="StandSlider" name="stand" onchange="updateStands()">
+    <input type="range" min="0" max="2" value="0" id="StandSlider" name="stand" onchange="updateStands()">
   </div>
   <div class="treeDecoration">
     <label for="fname">Skirt Type:</label><br>
@@ -63,7 +63,7 @@ echo '
   </div>
   <div class="treeDecoration">
     <label for="fname">Garland:</label><br>
-    <input type="range" min="0" max="1" value="0" id="GarlandSlider" name="garland" onchange="updateGarlands()">
+    <input type="range" min="0" max="2" value="0" id="GarlandSlider" name="garland" onchange="updateGarlands()">
   </div>
   <div class="treeDecoration">
     <label for="fname">Snow Effect:</label><br>
@@ -112,7 +112,7 @@ if ($skirt == "") $skirt = 0;
 if ($garland == "") $garland = 0;
 
 // Connect to MySQL
-$db = mysqli_connect("localhost:3306", "root", "","ChristmasStudio");
+$db = mysqli_connect("localhost:3306", "root", "root","ChristmasStudio");
 if (!$db) {
     print "Error - Could not connect to MySQL";
     exit;
