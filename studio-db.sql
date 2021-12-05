@@ -18,4 +18,5 @@ CREATE TABLE Design (
 
 insert into Design values
 (1, 'My First Tree', 2, 2, 3, 2, 0, 1, false),
-(2, 'I love this studio', 3, 2, 1, 1, 0, 2, true);
+(2, 'I love this studio', 3, 2, 1, 1, 0, 2, true),
+(3, 'Andrew', 1, 2, 1, 0, 1, 1, true);
