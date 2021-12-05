@@ -134,7 +134,7 @@ function saveDesign() {
   document.getElementById("myForm").submit();
 }
 
-function saveDesign() {
+function loadDesign() {
   var load = prompt("Enter a title to load:");
   document.getElementById('loadTitle').value = load;
   document.getElementById("myForm").submit();
