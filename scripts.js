@@ -45,7 +45,7 @@ function updateALL() {
   }
 
   //SKIRTS
-  var skirtArray = ["EMPTY.svg.png", "skirtred.gif"];
+  var skirtArray = ["EMPTY.svg.png", "skirtred.gif", "skirtblue.gif", "skirtcream.gif"];
   function updateSkirts() {
 
     var slide = document.getElementById('SkirtSlider');
@@ -75,11 +75,9 @@ function updateStands() {
   ;
   if (slide.value >= 1) {
     trunk.src = "resources/EMPTY.svg.png";
-    document.getElementById('Skirt').style.bottom = "620px";
   }
   else {
     trunk.src = "resources/trunk.gif";
-    document.getElementById('Skirt').style.bottom = "600px";
   }
 }
 
@@ -136,6 +134,6 @@ function saveDesign() {
 
 function loadDesign() {
   var load = prompt("Enter a title to load:");
-  document.getElementById('loadTitle').value = load;
+  document.getElementById('designTitle').value = load;
   document.getElementById("myForm").submit();
 }

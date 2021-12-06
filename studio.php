@@ -59,7 +59,7 @@ echo '
   </div>
   <div class="treeDecoration">
     <label for="fname">Skirt Type:</label><br>
-    <input type="range" min="0" max="1" value="0" id="SkirtSlider" name="skirt" onchange="updateSkirts()">
+    <input type="range" min="0" max="3" value="0" id="SkirtSlider" name="skirt" onchange="updateSkirts()">
   </div>
   <div class="treeDecoration">
     <label for="fname">Garland:</label><br>
@@ -79,7 +79,8 @@ echo '
 <!-- Buttons to submit form  CURRENTLY NOT WORKING-->
   <div class="buttonContainer">
     <input class = "button" value = "Save" onclick="saveDesign()"/>
-    <input class = "button" type = "submit"  value = "Load" />
+    <input class = "button" value = "Load" onclick="loadDesign()"/>
+    <!-- <input class = "button" type = "submit"  value = "Load" /> -->
   </div>
 </form>';
 
@@ -112,7 +113,7 @@ if ($skirt == "") $skirt = 0;
 if ($garland == "") $garland = 0;
 
 // Connect to MySQL
-$db = mysqli_connect("localhost:3306", "root", "","ChristmasStudio");
+$db = mysqli_connect("localhost:3306", "root", "", "ChristmasStudio");
 if (!$db) {
     print "Error - Could not connect to MySQL";
     exit;
