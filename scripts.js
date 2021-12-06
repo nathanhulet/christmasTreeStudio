@@ -8,10 +8,13 @@ function myFunction() {
 }
 
 //Functions to link sliders to images
-function updateALL() {
+function updateAll() {
   updatePines();
   updateLights();
   updateBulbs();
+  updateGarlands();
+  updateSkirts();
+  updateStands();
 }
 
   //PINES

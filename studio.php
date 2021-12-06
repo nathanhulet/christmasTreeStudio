@@ -131,9 +131,44 @@ if (!$er) {
     exit;
 }
 
+if ($action == "load") {
+  $queryTest = "SELECT * FROM Design";
+  $result = mysqli_query($db,$queryTest);
+  if (!$result) {
+    print "Error - the query could not be executed";
+    $error = mysqli_error();
+    print "<p>" . $error . "</p>";
+    debug_to_console("Error - the query could not be executed");
+    exit;
+  }
+
+  while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+    $myPine = $row['Pine'];
+    $myOrnaments = $row['Ornaments'];
+    $myLights = $row['Lights'];
+    $myStand = $row['Stand'];
+    $mySkirt = $row['Skirt'];
+    $myGarland = $row['Garland'];
+    $mySnow = $row['Snow'];
+    $jsArray = json_encode($row);
+    $encoded = rawurlencode($jsArray);
+    if ($row['Design_Title'] == $title) {
+      echo '<script>document.getElementById("PinesSlider").value =' . $row['Pine'] . ';</script>';
+      echo '<script>document.getElementById("BulbsSlider").value =' . $row['Ornaments'] . ';</script>';
+      echo '<script>document.getElementById("LightsSlider").value =' . $row['Lights'] . ';</script>';
+      echo '<script>document.getElementById("StandSlider").value =' . $row['Stand'] . ';</script>';
+      echo '<script>document.getElementById("SkirtSlider").value =' . $row['Skirt'] . ';</script>';
+      echo '<script>document.getElementById("GarlandSlider").value =' . $row['Garland'] . ';</script>';
+      echo '<script>document.getElementById("snowy").value =' . $row['Snow'] . ';</script>';
+      echo '<script>updateAll();</script>';
+
+    }
+}
+
+}
 
 if ($action == "save") {
-    $queryTest = "SELECT * FROM Design";
+  $queryTest = "SELECT * FROM Design";
   $result = mysqli_query($db,$queryTest);
   if (!$result) {
     print "Error - the query could not be executed";
@@ -155,6 +190,7 @@ if ($action == "save") {
       echo "<script>console.log('here it is: " . $error . "' );</script>";
   }
 }
+
 
 
 
