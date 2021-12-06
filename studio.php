@@ -8,6 +8,7 @@
 <?php
 
 echo '
+<!-- Snowflake object -->
 <img class="flake" src="resources/snowyflake.png" id="flakes">
 
 <!-- Dynamic Navbar -->
