@@ -129,11 +129,13 @@ const container = document.querySelector(".treeContainer");
 function saveDesign() {
   var title = prompt("Enter a title for your design:");
   document.getElementById('designTitle').value = title;
+  document.getElementById('action').value = "save";
   document.getElementById("myForm").submit();
 }
 
 function loadDesign() {
   var load = prompt("Enter a title to load:");
   document.getElementById('designTitle').value = load;
+  document.getElementById('action').value = "load";
   document.getElementById("myForm").submit();
 }
