@@ -8,7 +8,6 @@
 <?php
 
 echo '
-<!-- Snowflake object -->
 <img class="flake" src="resources/snowyflake.png" id="flakes">
 
 <!-- Dynamic Navbar -->
@@ -37,6 +36,7 @@ echo '
 </div>
 
 <script src="scripts.js"></script>
+
 
 <!-- Bottom menu bar for user inputs -->
 <form id="myForm" action="studio.php" method="post">
@@ -75,6 +75,9 @@ echo '
    <div>
     <input type="hidden" id= "snowy" name="snowy" value="true" />
    </div>
+   <div>
+    <input type="hidden" id= "myAction" name="myAction" value="" />
+   </div>
 </div>
 <!-- Buttons to submit form  CURRENTLY NOT WORKING-->
   <div class="buttonContainer">
@@ -101,6 +104,7 @@ $stand = $_POST["stand"];
 $skirt = $_POST["skirt"];
 $garland = $_POST["garland"];
 $snow = $_POST["snowy"];
+$action = $_POST["myAction"];
 
 
 
@@ -126,27 +130,31 @@ if (!$er) {
     exit;
 }
 
-$queryTest = "SELECT * FROM Design";
-$result = mysqli_query($db,$queryTest);
-if (!$result) {
-  print "Error - the query could not be executed";
-  $error = mysqli_error();
-  print "<p>" . $error . "</p>";
-  exit;
-}
-$num_rows = mysqli_num_rows($result);
-$newID = ($num_rows + 1);
 
-$query = "INSERT INTO Design values($newID, '$title', $pine, $ornaments, $lights, $stand, $skirt, $garland, $snow)";
-
-//trim($query);
-$result = mysqli_query($db,$query);
-
-if (!$result) {
-   debug_to_console("failure3");
+if ($action == "save") {
+    $queryTest = "SELECT * FROM Design";
+  $result = mysqli_query($db,$queryTest);
+  if (!$result) {
+    print "Error - the query could not be executed";
     $error = mysqli_error();
-    echo "<script>console.log('here it is: " . $error . "' );</script>";
+    print "<p>" . $error . "</p>";
+    exit;
+  }
+  $num_rows = mysqli_num_rows($result);
+  $newID = ($num_rows + 1);
+
+  $query = "INSERT INTO Design values($newID, '$title', $pine, $ornaments, $lights, $stand, $skirt, $garland, $snow)";
+
+  //trim($query);
+  $result = mysqli_query($db,$query);
+
+  if (!$result) {
+    debug_to_console("failure3");
+      $error = mysqli_error();
+      echo "<script>console.log('here it is: " . $error . "' );</script>";
+  }
 }
+
 
 
 ?>
